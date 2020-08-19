@@ -4,7 +4,7 @@ pipeline {
     stage('build_img') {
       steps {
         script {
-          learnimg = docker.build bhvaik0907/learn:$(BUILD_NUMBER)
+          learnimg = docker.build bhvaik0907/learn:$BUILD_NUMBER
         }
       }
     }
@@ -22,7 +22,7 @@ pipeline {
       stage('k8s_deploy') {
         steps {
           script {
-            kubectl set image deploy/learn-deployment learn=bhavik0907/learn:$(BUILD_NUMBER)
+            kubectl set image deploy/learn-deployment learn=bhavik0907/learn:$BUILD_NUMBER
             kubectl apply -f learn-node-port.yml
           }
         }
