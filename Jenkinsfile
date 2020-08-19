@@ -4,7 +4,7 @@ pipeline {
     stage('build_img') {
       steps {
         script {
-          learnimg = docker.build("bhvaik0907/learn:$(BUILD_NUMBER)", ".")
+          learnimg = docker.build bhvaik0907/learn:$(BUILD_NUMBER)
         }
       }
     }
