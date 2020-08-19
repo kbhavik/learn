@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learn-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: learnweb
+  template:
+    metadata:
+      labels:
+        component: learnweb
+    spec:
+      containers:
+        - name: learn
+          image: bhavik0907/learn:v3
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: dockercred
