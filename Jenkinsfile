@@ -22,8 +22,8 @@ pipeline {
       stage('k8s_deploy') {
         steps {
           script {
-            kubectl set image deploy/learn-deployment learn="bhavik0907/learn:$BUILD_NUMBER"
-            kubectl apply -f learn-node-port.yml
+            "kubectl set image deploy/learn-deployment learn=bhavik0907/learn:$BUILD_NUMBER"
+            "kubectl apply -f learn-node-port.yml"
           }
         }
       }
