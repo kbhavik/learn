@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          I'm learning K8s @ v2.0.0
+          I'm learning K8s with Jenkins
         </p>
         <a
           className="App-link"
