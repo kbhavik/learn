@@ -25,7 +25,7 @@ pipeline {
       steps {
         script {
           //bat 'kubectl --kubeconfig ./kube-config apply -f learn-deployment.yml'
-          bat 'kubectl --kubeconfig ./kube-config set image "deploy/learn-deployment" "learn=bhavik0907/learn:v$BUILD_NUMBER"'
+          bat 'kubectl --kubeconfig ./kube-config set image "deploy/learn-deployment" learn="bhavik0907/learn:v$BUILD_NUMBER"'
           bat 'kubectl --kubeconfig ./kube-config apply -f learn-node-port.yml'
         }
       }
