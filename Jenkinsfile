@@ -16,19 +16,19 @@ pipeline {
           docker.withRegistry('https://index.docker.io/v1/', 'Docker-hub') {
           //docker.withRegistry('bhavik0907/learn', 'Docker-hub') {  
            learnimg.push()
-            }
           }
         }
       }
-
-      stage('k8s_deploy') {
-        steps {
-          script {
-            //kubectl set image 'deploy/learn-deployment' 'learn=bhavik0907/learn:v$BUILD_NUMBER'
-            kubectl apply -f "learn-node-port.yml"
-          }
-        }
-      }
-
     }
+
+    stage('k8s_deploy') {
+      steps {
+        script {
+          //kubectl set image 'deploy/learn-deployment' 'learn=bhavik0907/learn:v$BUILD_NUMBER'
+          'kubectl apply -f learn-node-port.yml'
+        }
+      }
+    }
+
   }
+}
