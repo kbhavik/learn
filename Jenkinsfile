@@ -12,7 +12,8 @@ pipeline {
     stage('push_img') {
       steps {
         script {
-          docker.withRegistry('https://index.docker.io/v1/', 'Docker-hub') {
+          docker.withRegistry('', 'Docker-hub') {
+          //docker.withRegistry('https://index.docker.io/v1/', 'Docker-hub') {
           //docker.withRegistry('bhavik0907/learn', 'Docker-hub') {  
            learnimg.push()
             }
