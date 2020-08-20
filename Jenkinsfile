@@ -24,9 +24,9 @@ pipeline {
     stage('k8s_deploy') {
       steps {
         script {
-          sh 'kubectl --kubeconfig ./kube-config apply -f learn-deployment.yml'
-          sh 'kubectl --kubeconfig ./kube-config set image "deploy/learn-deployment" "learn=bhavik0907/learn:v$BUILD_NUMBER"'
-          sh 'kubectl --kubeconfig ./kube-config apply -f learn-node-port.yml'
+          bat 'kubectl --kubeconfig ./kube-config apply -f learn-deployment.yml'
+          bat 'kubectl --kubeconfig ./kube-config set image "deploy/learn-deployment" "learn=bhavik0907/learn:v$BUILD_NUMBER"'
+          bat 'kubectl --kubeconfig ./kube-config apply -f learn-node-port.yml'
         }
       }
     }
